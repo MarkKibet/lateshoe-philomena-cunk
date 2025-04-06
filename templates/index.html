@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Late Night Show</title>
+    <!-- Google Fonts for Styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay muted loop class="background-video">
+            <source src="{{ url_for('static', filename='videos/Cunk On Life _ Sneak Peek _ Netflix.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>The Late Night Show</h1>
+        <h2>By Philomena Cunk</h2>
+    </div>
+    <!-- Content Section -->
+    <div class="content">
+        <a href="/guests" class="tab-button">View Guest List</a>
+    </div>
+    <!-- Script Link -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

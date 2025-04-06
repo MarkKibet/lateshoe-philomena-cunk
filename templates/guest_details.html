@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ guest.name }} - Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>{{ guest.name }}</h1>
+        <h2>Occupation: {{ guest.occupation }}</h2>
+    </div>
+    <div class="details-container">
+        <h3>Reason for Attendance:</h3>
+        <p class="funny-reason">{{ reason }}</p>
+    </div>
+    <div class="back-button-container">
+        <a href="/guests" class="back-button">Back to Guests</a>
+    </div>
+</body>
+</html>

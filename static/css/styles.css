@@ -1,0 +1,142 @@
+/* General Body Styling */
+body {
+    font-family: 'Playfair Display', serif; /* Fancy font for headings */
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Background Video Styling */
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send video to the back */
+    overflow: hidden;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the screen */
+}
+
+/* Curved Hero Section */
+.hero {
+    position: relative;
+    padding: 100px 20px;
+    text-align: left; /* Align text to the left */
+}
+
+.curved-background {
+    position: relative;
+    background: linear-gradient(135deg, #004e92, #000428); /* Blue gradient */
+    color: white;
+    clip-path: path("M 0,400 Q 200,100 500,200 T 1000,200 L 1000,800 L 0,800 Z"); /* Curved, waved design */
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.curved-background h1 {
+    font-size: 3em;
+    color: #FFD700; /* Light gold title */
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.curved-background h2 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 0;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Content Section Styling */
+.content {
+    margin-top: 50px;
+}
+
+.tab-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: #FFD700; /* Light gold */
+    color: black;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tab-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.header {
+    padding: 50px;
+    background: linear-gradient(135deg, #004e92, #000428); /* Blue gradient */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 3.5em;
+    color: #FFD700; /* Gold for guest name */
+}
+
+.header h2 {
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.funny-reason {
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    color: white;
+    text-align: center;
+}
+
+.funny-reason h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.funny-reason p {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #FFD700; /* Gold for humor emphasis */
+}
+
+.back-button-container {
+    margin-top: 30px;
+}
+
+.back-button {
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 25px;
+    background: #FFD700;
+    color: black;
+    border-radius: 25px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:hover {
+    background: #f0c400;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}

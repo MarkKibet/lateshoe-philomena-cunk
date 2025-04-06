@@ -1,0 +1,101 @@
+/* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif; /* Clean font for general text */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #28313b, #485461); /* Sleek gradient */
+    color: white;
+    text-align: center;
+}
+
+/* Header Section Styling */
+.header {
+    padding: 50px 20px;
+    background-color: #FFD700; /* Light gold background */
+    color: black; /* Contrast with the background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+    font-family: 'Playfair Display', serif; /* Fancy font for headings */
+    font-size: 3.5em;
+    margin: 0;
+}
+
+.header h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* Guest Container Styling */
+.guest-container {
+    padding: 30px;
+}
+
+.guest-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.guest-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+    width: 250px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.guest-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.guest-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #FFD700; /* Gold color for guest name */
+}
+
+.guest-occupation {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    font-style: italic;
+    color: #d0d0d0;
+}
+
+/* No Guests Styling */
+.no-guests {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #ffdddd;
+}
+
+/* Back Button Styling */
+.back-button-container {
+    margin: 30px 0;
+}
+
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: black;
+    background-color: #FFD700; /* Light gold background */
+    padding: 15px 25px;
+    border-radius: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.back-button:hover {
+    background-color: #f0c400;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
