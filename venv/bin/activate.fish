@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/mark-kibet/Phase-4-Labs/late-show-codechallenge/venv
+set -gx VIRTUAL_ENV /home/mark-kibet/Phase-4-Labs/philomena/lateshoe-philomena-cunk/venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

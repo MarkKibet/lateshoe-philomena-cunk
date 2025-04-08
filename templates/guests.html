@@ -13,15 +13,19 @@
     <div class="header">
         <h1>Guest List</h1>
         <h2>The Late Night Show</h2>
-        <h3>By Philomena Cunk</h3>
+        <h3>With Philomena Cunk</h3>
     </div>
     <div class="guest-container">
         {% if guests %}
             <div class="guest-list">
                 {% for guest in guests %}
                 <div class="guest-card">
-                    <h3 class="guest-name">{{ guest.name }}</h3>
+                    <a href="/guests/{{ guest.id }}" class="guest-name-link">
+                        <h3 class="guest-name">{{ guest.name }}</h3>
+                    </a>
                     <p class="guest-occupation">{{ guest.occupation }}</p>
+                    <!-- Display the reason for each guest -->
+                
                 </div>
                 {% endfor %}
             </div>

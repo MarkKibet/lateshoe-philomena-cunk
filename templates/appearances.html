@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appearances</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Appearances</h1>
+    </div>
+    <div class="appearance-container">
+        {% if appearances %}
+            <table class="appearance-table">
+                <thead>
+                    <tr>
+                        <th>Guest</th>
+                        <th>Episode</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appearance in appearances %}
+                    <tr>
+                        <td><a href="/guests/{{ appearance.guest.id }}">{{ appearance.guest.name }}</a></td>
+                        <td><a href="/episodes/{{ appearance.episode.id }}">Episode #{{ appearance.episode.number }}</a></td>
+                        <td>{{ appearance.rating }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No appearances found.</p>
+        {% endif %}
+    </div>
+    <div class="back-button-container">
+        <a href="/" class="back-button">Back to Home</a>
+    </div>
+</body>
+</html>
