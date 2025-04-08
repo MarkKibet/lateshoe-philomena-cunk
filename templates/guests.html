@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guest List - The Late Night Show</title>
-    <!-- Google Fonts for Styling -->
+   
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <!-- External CSS File -->
+  
     <link rel="stylesheet" href="{{ url_for('static', filename='css/guests.css') }}">
 </head>
 <body>
@@ -24,7 +24,7 @@
                         <h3 class="guest-name">{{ guest.name }}</h3>
                     </a>
                     <p class="guest-occupation">{{ guest.occupation }}</p>
-                    <!-- Display the reason for each guest -->
+                   
                 
                 </div>
                 {% endfor %}

@@ -10,8 +10,9 @@ class Episode(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String, nullable=False)
     number = db.Column(db.Integer, nullable=False)
-    appearances = db.relationship('Appearance', back_populates='episode', cascade='all, delete-orphan')
 
+
+    appearances = db.relationship('Appearance', back_populates='episode', cascade='all, delete-orphan')
     
     serialize_rules = ('-appearances.episode', 'appearances.guest')
 
@@ -23,7 +24,6 @@ class Guest(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable=False)
     occupation = db.Column(db.String, nullable=False)
     appearances = db.relationship('Appearance', back_populates='guest', cascade='all, delete-orphan')
-
     
     serialize_rules = ('-appearances.guest',)
 
@@ -44,6 +44,5 @@ class Appearance(db.Model, SerializerMixin):
         if not (1 <= rating <= 5):
             raise ValueError("Rating must be between 1 and 5.")
         return rating
-
     
     serialize_rules = ('-episode.appearances', '-guest.appearances')

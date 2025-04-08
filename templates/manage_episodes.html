@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Episodes</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            color: #FFD700;
+            text-align: center;
+            background-color: #001F3F;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            margin: 5px;
+            background-color: #FFD700;
+            color: black;
+            cursor: pointer;
+            border-radius: 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            border: none;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            color: #FFD700;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+        }
+
+        button {
+            background-color: #FFD700;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+
+            document.addEventListener('click', function handleClickOutside(event) {
+                const activeContent = document.getElementById(tabId);
+                if (!activeContent.contains(event.target) && !event.target.classList.contains('tab')) {
+                    activeContent.classList.remove('active');
+                    document.removeEventListener('click', handleClickOutside);
+                }
+            });
+        }
+
+        async function submitDeleteForm() {
+            const episodeId = document.getElementById('delete_episode_id').value;
+
+            try {
+                const response = await fetch('/delete_episode', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ episode_id: episodeId })
+                });
+                const result = await response.json();
+                alert(result.message || result.errors.join(', '));  // Display success or error
+            } catch (error) {
+                alert('An error occurred while deleting the episode.');
+            }
+        }
+
+        async function submitAddForm() {
+            const rating = document.getElementById('add_rating').value;
+            const episodeId = document.getElementById('add_episode_id').value;
+            const guestId = document.getElementById('add_guest_id').value;
+
+            try {
+                const response = await fetch('/create_appearance', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ rating, episode_id: episodeId, guest_id: guestId })
+                });
+                const result = await response.json();
+                alert(result.message || result.errors.join(', '));  // Display success or error
+            } catch (error) {
+                alert('An error occurred while creating the appearance.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Manage Episodes</h1>
+    </header>
+
+    <div class="tabs">
+        <button class="tab" onclick="showTab('delete-tab')">Delete Episode</button>
+        <button class="tab" onclick="showTab('add-tab')">Add Appearance</button>
+    </div>
+
+
+    <div id="delete-tab" class="tab-content">
+        <h2>Delete Episode</h2>
+        <form onsubmit="event.preventDefault(); submitDeleteForm();">
+            <label for="delete_episode_id">Episode ID:</label>
+            <input type="number" id="delete_episode_id" required>
+            <button type="submit">Delete Episode</button>
+        </form>
+    </div>
+
+    
+    <div id="add-tab" class="tab-content">
+        <h2>Add Appearance</h2>
+        <form onsubmit="event.preventDefault(); submitAddForm();">
+            <label for="add_rating">Rating:</label>
+            <input type="number" id="add_rating" min="1" max="5" required>
+
+            <label for="add_episode_id">Episode ID:</label>
+            <input type="number" id="add_episode_id" required>
+
+            <label for="add_guest_id">Guest ID:</label>
+            <input type="number" id="add_guest_id" required>
+
+            <button type="submit">Add Appearance</button>
+        </form>
+    </div>
+</body>
+</html>
